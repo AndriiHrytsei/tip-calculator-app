@@ -1,5 +1,18 @@
-const App = () => {
-  return <h1>This is a react template using vite</h1>
-}
+import css from "./App.module.css"
+import CalcLayout from "../CalcLayout/CalcLayout";
+import Calculator from "../Calculator/Calculator"
+import Result from "../Result/Result"
 
-export default App
+const App = () => {
+  return (
+    <>
+      <h1 className={css.heading}>SPLI<br/>TTER</h1>
+      <CalcLayout>
+        <Calculator />
+        <Result />
+      </CalcLayout>
+    </>
+  );
+};
+
+export default App;
