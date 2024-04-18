@@ -1,4 +1,9 @@
-h1 {
-  color: blue;
-  font-size: 40px;
+.heading {
+  font-family: "Space Mono";
+  letter-spacing: 0.3em;
+  line-height: 1.4em;
+  color: var(--dark-grayish-cyan);
+  text-align: center;
+  margin-top: 70px;
+  font-size: 1.7em;
 }
