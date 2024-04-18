@@ -1,7 +1,7 @@
 import css from "./App.module.css"
-import CalcLayout from "../CalcLayout/CalcLayout";
-import Calculator from "../Calculator/Calculator"
-import Result from "../Result/Result"
+import CalcLayout from "../CalcLayout/CalcLayout.jsx";
+import Calculator from "../Calculator/Calculator.jsx"
+import Result from "../Result/Result.jsx"
 
 const App = () => {
   return (
