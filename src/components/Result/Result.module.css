@@ -1,0 +1,73 @@
+.resultSect {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  row-gap: 30px;
+  background-color: var(--very-dark-cyan);
+  width: 90%;
+  margin-top: 40px;
+  max-width: 30rem;
+  border-radius: 15px;
+  padding: 40px 25px 20px;
+  font-family: "Space Mono";
+}
+
+/*? Tip Info; Total bill info */
+
+.tipAmountBox,
+.totalBillBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tipInfo p,
+.billInfo p {
+  color: var(--white);
+  font-weight: 700;
+}
+
+.tipInfo span,
+.billInfo span {
+  color: var(--dark-grayish-cyan);
+  font-weight: 700;
+  font-size: 0.9em;
+}
+
+.totalTipAmount,
+.totalBillAmount {
+  color: var(--strong-cyan);
+  font-weight: 700;
+  font-size: 1.7em;
+}
+
+/*? Reset button */
+
+.resetBtn {
+  background-color: var(--strong-cyan);
+  color: var(--very-dark-cyan);
+  border: none;
+  font-weight: 700;
+  border-radius: 6px;
+  height: 40px;
+  font-size: 1.1em;
+  transition: background 0.3s linear;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 24.7rem ;
+}
+
+.resetBtn:hover {
+  background-color: var(--light-grayish-cyan);
+}
+
+@media screen and (min-width: 1032px) {
+  .resultSect {
+    margin-bottom: 30px;
+  }
+  .resetBtn {
+    margin-top: 110px;
+    margin-bottom: 20px;
+    height: 50px;
+  }
+}

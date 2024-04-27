@@ -1,0 +1,123 @@
+/*? Calculator section */
+.calcSect {
+  width: 90%;
+  max-width: 32rem;
+}
+
+/*? Bill input container */
+
+.billBox {
+  display: flex;
+  flex-direction: column;
+  max-width: 27.5rem;
+}
+
+.billBox label {
+  font-family: "Space Mono";
+  font-weight: 700;
+  color: var(--dark-grayish-cyan);
+  margin-bottom: 10px;
+  font-size: 0.9em;
+}
+
+.billBox input {
+  background-color: var(--very-light-grayish-cyan);
+  border: none;
+  border-radius: 5px;
+  height: 2.4rem;
+  font-size: 1.4em;
+  font-family: "Space Mono";
+  font-weight: 700;
+  color: var(--very-dark-cyan);
+  text-align: right;
+  outline: none;
+  padding: 0 20px;
+  background-image: url("../../images/icon-dollar.svg");
+  background-repeat: no-repeat;
+  background-position: 10px center;
+}
+
+/* Tip percantage */
+
+.tipPerceantage {
+  margin-top: 40px;
+  max-width: 27.9rem;
+}
+
+.tipPerceantage p {
+  font-family: "Space Mono";
+  font-weight: 700;
+  color: var(--dark-grayish-cyan);
+  margin-bottom: 10px;
+  font-size: 0.9em;
+  letter-spacing: 0.1em;
+}
+
+.tipList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+
+}
+
+.customTip,
+.tipItem {
+  width: 8.5rem;
+  height: 2.7rem;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--very-dark-cyan);
+  color: var(--white);
+  font-family: "Space Mono";
+  font-weight: 700;
+  font-size: 1.4em;
+  transition: all 0.2s linear;
+}
+
+.tipItem:hover {
+  background-color: var(--strong-cyan);
+  color: var(--very-dark-cyan);
+}
+
+.customTip {
+  background-color: var(--very-light-grayish-cyan);
+  color: var(--very-dark-cyan);
+  text-align: right;  
+  padding-right: 20px;
+  outline: none;
+}
+
+/* Number of people input */
+
+.numOfPpl {
+  display: flex;
+  flex-direction: column;
+  max-width: 27.5rem;
+  margin-top: 40px;
+}
+
+.numOfPpl label {
+  font-family: "Space Mono";
+  font-weight: 700;
+  color: var(--dark-grayish-cyan);
+  margin-bottom: 10px;
+  font-size: 0.9em;
+}
+
+.numOfPpl input {
+  background-color: var(--very-light-grayish-cyan);
+  border: none;
+  border-radius: 5px;
+  height: 2.4rem;
+  font-size: 1.4em;
+  font-family: "Space Mono";
+  font-weight: 700;
+  color: var(--very-dark-cyan);
+  text-align: right;
+  outline: none;
+  padding: 0 20px;
+  background-image: url("../../images/icon-person.svg");
+  background-repeat: no-repeat;
+  background-position: 10px center;  
+}
