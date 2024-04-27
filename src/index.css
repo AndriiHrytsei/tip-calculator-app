@@ -29,6 +29,8 @@ figure, blockquote, dl, dd {
 ul,
 ol {
   list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 /* Set core body defaults */
@@ -78,6 +80,7 @@ textarea:not([rows]) {
 :target {
   scroll-margin-block: 5ex;
 }
+
 
 /*! –––––––––––––––––––––––––––––––––––– CSS VARIABLES –––––––––––––––––––––––––––––––––––– */
 

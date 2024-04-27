@@ -3,9 +3,9 @@ import css from "./CalcLayout.module.css"
 
 const CalcLayout = ({ children }) => {
   return (
-    <section className={css.calcLayout}>
+    <main className={css.main}>
       {children}
-    </section>
+    </main>
   )
 }
 
