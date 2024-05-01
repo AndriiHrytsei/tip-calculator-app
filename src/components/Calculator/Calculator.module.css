@@ -1,11 +1,15 @@
-/*? Calculator section */
+/*? –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
+/*? ––––––––––––––––––––––––––––––––––––––––– Calculator section ––––––––––––––––––––––––––––––––––––––––– */
+/*? –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
+
 .calcSect {
   width: 90%;
   max-width: 32rem;
 }
 
-/*? Bill input container */
-
+/*? –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
+/*? ––––––––––––––––––––––––––––––––––––––––– Bill input container ––––––––––––––––––––––––––––––––––––––––– */
+/*? –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 .billBox {
   display: flex;
   flex-direction: column;
@@ -37,7 +41,13 @@
   background-position: 10px center;
 }
 
-/* Tip percantage */
+.billBox input:focus {
+  border: 2px solid var(--strong-cyan);
+}
+
+/*? –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
+/*? ––––––––––––––––––––––––––––––––––––––––– Tip percantage ––––––––––––––––––––––––––––––––––––––––– */
+/*? –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 .tipPerceantage {
   margin-top: 40px;
@@ -63,7 +73,7 @@
 
 .customTip,
 .tipItem {
-  width: 8.5rem;
+  width: 7.2rem;
   height: 2.7rem;
   border: none;
   border-radius: 5px;
@@ -72,7 +82,7 @@
   font-family: "Space Mono";
   font-weight: 700;
   font-size: 1.4em;
-  transition: all 0.2s linear;
+  transition: background, color, 0.2s linear;
 }
 
 .tipItem:hover {
@@ -88,36 +98,84 @@
   outline: none;
 }
 
-/* Number of people input */
+.customTip:focus {
+  border: 2px solid var(--strong-cyan);  
+}
+
+/*? –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
+/*? ––––––––––––––––––––––––––––––––––––––––– Number of people input ––––––––––––––––––––––––––––––––––––––––– */
+/*? –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 .numOfPpl {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   max-width: 27.5rem;
   margin-top: 40px;
+  font-family: "Space Mono";
+}
+
+.numOfPpl div {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .numOfPpl label {
-  font-family: "Space Mono";
   font-weight: 700;
   color: var(--dark-grayish-cyan);
   margin-bottom: 10px;
-  font-size: 0.9em;
+  font-size: 0.95em;
 }
 
-.numOfPpl input {
+.cantBeZero {
+  font-size: 0.7em;
+  font-weight: 700;
+  color: #f22a14;
+}
+
+.numOfPplInput {
   background-color: var(--very-light-grayish-cyan);
   border: none;
+  outline: none;
   border-radius: 5px;
   height: 2.4rem;
   font-size: 1.4em;
-  font-family: "Space Mono";
   font-weight: 700;
   color: var(--very-dark-cyan);
   text-align: right;
-  outline: none;
   padding: 0 20px;
   background-image: url("../../images/icon-person.svg");
   background-repeat: no-repeat;
   background-position: 10px center;  
+  width: 100%;
+}
+
+.numOfPpl input:focus {
+  border: 2px solid var(--strong-cyan);  
+}
+
+.zeroPpl {
+  border: 2px solid #f22a14;
+}
+
+
+@media screen and (min-width: 1032px) {
+
+  .billBox input {
+    height: 3rem;
+  }
+
+  .tipItem,
+  .customTip {
+    width: 8.5rem;
+  }
+
+  .numOfPplInput {
+    height: 3rem;
+  }
+
+  .cantBeZero {
+    font-size: 1em;
+  }
 }

@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import css from "./Calculator.module.css";
 
-const Calculator = ({ inputChange, billInfo, handleSetTip }) => {
+const Calculator = ({ inputChange, billInfo, handleSetTip, handlePplAmount }) => {
   const tipValues = [5, 10, 15, 25, 50];
 
   return (
@@ -42,13 +42,17 @@ const Calculator = ({ inputChange, billInfo, handleSetTip }) => {
         </ul>
       </div>
       <div className={css.numOfPpl}>
-        <label htmlFor="pplInput">Number of People</label>
+        <div>
+          <label htmlFor="pplInput">Number of People</label>
+          {Number(billInfo.pplAmount[0]) === 0 || billInfo.pplAmount.length === 0 ? <p className={css.cantBeZero}>Can&apos;t be zero</p> : <></>}
+        </div>
         <input
           type="text"
           name="pplInput"
           id="pplInput"
           value={billInfo.pplAmount}
-          onChange={inputChange}
+          onChange={handlePplAmount}
+          className={`${css.numOfPplInput} ${Number(billInfo.pplAmount[0]) === 0 || billInfo.pplAmount.length === 0 ? css.zeroPpl : ""}`}
         />
       </div>
     </section>
@@ -61,4 +65,5 @@ Calculator.propTypes = {
   inputChange: PropTypes.func.isRequired,
   billInfo: PropTypes.object.isRequired,
   handleSetTip: PropTypes.func.isRequired,
+  handlePplAmount: PropTypes.func.isRequired
 };
