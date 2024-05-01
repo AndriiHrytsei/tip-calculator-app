@@ -12,9 +12,9 @@ const App = () => {
 
   // Instead of creating three functions that would read 
   // three inputs I combined it into one so as not to have three same functions
-  
+
   const handleInputChange = (e) => {
-    const re = /^[0-9\b]+$/;
+    const re = /^(?!(.*\.){2})[0-9.\b]+$/;
     if (e.currentTarget.value === "" || re.test(e.currentTarget.value)) {
       switch (e.currentTarget.name) {
         case "billAmount":
@@ -24,14 +24,18 @@ const App = () => {
           setCustomTip(e.currentTarget.value);
           setTip("");
           break;
-        case "pplInput":
-          setPplAmount(e.currentTarget.value);
-          break;
         default:
           break;
       }
     }
   };
+
+  const handlePplInputChange = (e) => {
+    const re = /^[0-9\b]+$/;
+    if (e.currentTarget.value === "" || re.test(e.currentTarget.value)) {
+      setPplAmount(e.currentTarget.value);      
+    }    
+  }
 
   const handleSetTip = (e) => {
     setTip(e.currentTarget.value);
@@ -62,6 +66,7 @@ const App = () => {
             customTip: customTip,
           }}
           handleSetTip={handleSetTip}
+          handlePplAmount={handlePplInputChange}
         />
         <Result
           billInfo={{

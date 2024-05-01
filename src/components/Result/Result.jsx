@@ -2,38 +2,42 @@ import css from "./Result.module.css";
 import PropTypes from "prop-types";
 
 const Result = ({ billInfo, resetFunc }) => {
-  const totalTip =
-    ((Number(billInfo.tip) / 100) * billInfo.bill) / billInfo.pplAmount;
-  const total =
-    ((Number(billInfo.tip) / 100 + 1) * billInfo.bill) / billInfo.pplAmount;
+  const totalTip = billInfo.pplAmount[0] === "0" ? "0.00" : ((Number(billInfo.tip) / 100) * billInfo.bill) / billInfo.pplAmount;
+  const total = billInfo.pplAmount[0] === "0" ? "0.00" : ((Number(billInfo.tip) / 100 + 1) * billInfo.bill) / billInfo.pplAmount;
+
 
   return (
     <section className={css.resultSect}>
       <div className={css.tipAmountBox}>
         <div className={css.tipInfo}>
-          <p>Tip Amount</p>
-          <span>/ person</span>
+          <p className={css.title}>Tip Amount</p>
+          <span className={css.perPerson}>/ person</span>
         </div>
-        <p className={css.totalTipAmount}>
+        <p className={css.totalAmount}>
           $
-          {totalTip === Infinity || totalTip === 0
+          {totalTip === Infinity || totalTip === 0 || totalTip[0] === "0" || isNaN(totalTip) 
             ? "0.00"
             : totalTip.toFixed(2)}
         </p>
       </div>
       <div className={css.totalBillBox}>
         <div className={css.billInfo}>
-          <p>Total</p>
-          <span>/ person</span>
+          <p className={css.title}>Total</p>
+          <span className={css.perPerson}>/ person</span>
         </div>
-        <p className={css.totalBillAmount}>${total === Infinity || total === 0 ? "0.00" : total.toFixed(2)}</p>
+        <p className={css.totalAmount}>
+          $
+          {total === Infinity || total === 0 || total[0] === "0" || isNaN(totalTip)
+            ? "0.00"
+            : total.toFixed(2)}
+        </p>
       </div>
       <button
         type="reset"
         disabled={
-          totalTip === 0 ||
+          totalTip === 0 &&
           total === 0 ||
-          totalTip === Infinity ||
+          totalTip === Infinity &&
           total === Infinity
             ? true
             : false
@@ -51,5 +55,5 @@ export default Result;
 
 Result.propTypes = {
   billInfo: PropTypes.object.isRequired,
-  resetFunc: PropTypes.func.isRequired
+  resetFunc: PropTypes.func.isRequired,
 };
