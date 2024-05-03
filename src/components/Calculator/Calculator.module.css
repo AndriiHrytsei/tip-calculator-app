@@ -39,10 +39,12 @@
   background-image: url("../../images/icon-dollar.svg");
   background-repeat: no-repeat;
   background-position: 10px center;
+  transition: outline 0.2s linear;
 }
 
-.billBox input:focus {
-  border: 2px solid var(--strong-cyan);
+.billBox input:focus,
+.billBox input:hover {
+  outline: 2px solid var(--strong-cyan);
 }
 
 /*? –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -82,8 +84,9 @@
   font-family: "Space Mono";
   font-weight: 700;
   font-size: 1.4em;
-  transition: background, color, 0.2s linear;
+  transition: background, color, outline, 0.2s linear;
 }
+
 
 .tipItem:hover {
   background-color: var(--strong-cyan);
@@ -98,8 +101,9 @@
   outline: none;
 }
 
-.customTip:focus {
-  border: 2px solid var(--strong-cyan);  
+.customTip:focus,
+.customTip:hover {
+  outline: 2px solid var(--strong-cyan);  
 }
 
 /*? –––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––– */
@@ -149,14 +153,16 @@
   background-repeat: no-repeat;
   background-position: 10px center;  
   width: 100%;
+  transition: outline, 0.2s linear;
 }
 
-.numOfPpl input:focus {
-  border: 2px solid var(--strong-cyan);  
+.numOfPplInput:focus,
+.numOfPplInput:hover {
+  outline: 2px solid var(--strong-cyan);  
 }
 
 .zeroPpl {
-  border: 2px solid #f22a14;
+  outline: 2px solid #f22a14;
 }
 
 
