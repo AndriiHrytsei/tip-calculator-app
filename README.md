@@ -50,5 +50,5 @@ In the future I am planning to implement Typescript in order to make my code mor
 
 ## Author
 
-- Website - [AndriiHrytse](https://www.your-site.com)
-- Frontend Mentor - [AndriiHrytse](https://www.frontendmentor.io/profile/yourusername)
+- Website - [AndriiHrytsei](https://www.your-site.com)
+- Frontend Mentor - [AndriiHrytsei](https://www.frontendmentor.io/profile/yourusername)
