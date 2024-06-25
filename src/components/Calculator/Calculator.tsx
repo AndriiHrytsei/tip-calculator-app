@@ -1,8 +1,14 @@
-import PropTypes from "prop-types";
 import css from "./Calculator.module.css";
+import CalculatorPropsInterface from "../../types/calculatorProps";
+import TipValue from "../../types/tipValue";
 
-const Calculator = ({ inputChange, billInfo, handleSetTip, handlePplAmount }) => {
-  const tipValues = [5, 10, 15, 25, 50];
+const Calculator = ({
+  inputChange,
+  billInfo,
+  handleSetTip,
+  handlePplAmount,
+}: CalculatorPropsInterface) => {
+  const tipValues: TipValue = [5, 10, 15, 25, 50];
 
   return (
     <section className={css.calcSect}>
@@ -20,9 +26,14 @@ const Calculator = ({ inputChange, billInfo, handleSetTip, handlePplAmount }) =>
       <div className={css.tipPerceantage}>
         <p>Select Tip %</p>
         <ul className={css.tipList}>
-          {tipValues.map((value) => (
+          {tipValues.map((value: number) => (
             <li className={css.tipAmount} key={value}>
-              <button value={value} type="button" onClick={handleSetTip} className={css.tipItem}>
+              <button
+                value={value}
+                type="button"
+                onClick={handleSetTip}
+                className={css.tipItem}
+              >
                 {value}%
               </button>
             </li>
@@ -44,7 +55,12 @@ const Calculator = ({ inputChange, billInfo, handleSetTip, handlePplAmount }) =>
       <div className={css.numOfPpl}>
         <div>
           <label htmlFor="pplInput">Number of People</label>
-          {Number(billInfo.pplAmount[0]) === 0 || billInfo.pplAmount.length === 0 ? <p className={css.cantBeZero}>Can&apos;t be zero</p> : <></>}
+          {Number(billInfo.pplAmount[0]) === 0 ||
+          billInfo.pplAmount.length === 0 ? (
+            <p className={css.cantBeZero}>Can&apos;t be zero</p>
+          ) : (
+            <></>
+          )}
         </div>
         <input
           type="text"
@@ -52,7 +68,12 @@ const Calculator = ({ inputChange, billInfo, handleSetTip, handlePplAmount }) =>
           id="pplInput"
           value={billInfo.pplAmount}
           onChange={handlePplAmount}
-          className={`${css.numOfPplInput} ${Number(billInfo.pplAmount[0]) === 0 || billInfo.pplAmount.length === 0 ? css.zeroPpl : ""}`}
+          className={`${css.numOfPplInput} ${
+            Number(billInfo.pplAmount[0]) === 0 ||
+            billInfo.pplAmount.length === 0
+              ? css.zeroPpl
+              : ""
+          }`}
         />
       </div>
     </section>
@@ -60,10 +81,3 @@ const Calculator = ({ inputChange, billInfo, handleSetTip, handlePplAmount }) =>
 };
 
 export default Calculator;
-
-Calculator.propTypes = {
-  inputChange: PropTypes.func.isRequired,
-  billInfo: PropTypes.object.isRequired,
-  handleSetTip: PropTypes.func.isRequired,
-  handlePplAmount: PropTypes.func.isRequired
-};

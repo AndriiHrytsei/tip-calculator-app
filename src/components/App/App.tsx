@@ -2,23 +2,23 @@ import css from "./App.module.css";
 import CalcLayout from "../CalcLayout/CalcLayout.jsx";
 import Calculator from "../Calculator/Calculator.jsx";
 import Result from "../Result/Result.jsx";
-import { useState } from "react";
+import React, { useState } from "react";
 
 const App = () => {
-  const [bill, setBill] = useState("");
-  const [tip, setTip] = useState("");
-  const [pplAmount, setPplAmount] = useState(1);
-  const [customTip, setCustomTip] = useState("");
+  const [bill, setBill] = useState<string>("");
+  const [tip, setTip] = useState<string>("");
+  const [pplAmount, setPplAmount] = useState<string>("1");
+  const [customTip, setCustomTip] = useState<string>("");
 
-  // Instead of creating three functions that would read 
+  // Instead of creating three functions that would read
   // three inputs I combined it into one so as not to have three same functions
 
-  const handleInputChange = (e) => {
-    const re = /^(?!(.*\.){2})[0-9.\b]+$/;
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const re: RegExp = /^(?!(.*\.){2})[0-9.\b]+$/;
     if (e.currentTarget.value === "" || re.test(e.currentTarget.value)) {
       switch (e.currentTarget.name) {
         case "billAmount":
-          setBill(e.currentTarget.value);          
+          setBill(e.currentTarget.value);
           break;
         case "customTip":
           setCustomTip(e.currentTarget.value);
@@ -30,24 +30,26 @@ const App = () => {
     }
   };
 
-  const handlePplInputChange = (e) => {
-    const re = /^[0-9\b]+$/;
+  const handlePplInputChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ): void => {
+    const re: RegExp = /^[0-9\b]+$/;
     if (e.currentTarget.value === "" || re.test(e.currentTarget.value)) {
-      setPplAmount(e.currentTarget.value);      
-    }    
-  }
+      setPplAmount(e.currentTarget.value);
+    }
+  };
 
-  const handleSetTip = (e) => {
+  const handleSetTip = (e: React.MouseEvent<HTMLButtonElement>): void => {
     setTip(e.currentTarget.value);
     setCustomTip("");
   };
 
-  const handleReset = () => {
-    setBill("")
-    setTip("")
-    setPplAmount(1)
-    setCustomTip("")
-  }
+  const handleReset = (): void => {
+    setBill("");
+    setTip("");
+    setPplAmount("1");
+    setCustomTip("");
+  };
 
   return (
     <>
