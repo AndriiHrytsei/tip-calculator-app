@@ -1,10 +1,24 @@
 import css from "./Result.module.css";
-import PropTypes from "prop-types";
+import BillInfoInterface from "../../types/billInfo";
+import React from "react";
 
-const Result = ({ billInfo, resetFunc }) => {
-  const totalTip = billInfo.pplAmount[0] === "0" ? "0.00" : ((Number(billInfo.tip) / 100) * billInfo.bill) / billInfo.pplAmount;
-  const total = billInfo.pplAmount[0] === "0" ? "0.00" : ((Number(billInfo.tip) / 100 + 1) * billInfo.bill) / billInfo.pplAmount;
-
+const Result = ({
+  billInfo,
+  resetFunc,
+}: {
+  billInfo: BillInfoInterface;
+  resetFunc: React.MouseEventHandler<HTMLButtonElement>;
+}) => {
+  const totalTip: number | 0.00 =
+    billInfo.pplAmount[0] === "0"
+      ? 0.0
+      : ((Number(billInfo.tip) / 100) * Number(billInfo.bill)) /
+        Number(billInfo.pplAmount);
+  const total: number | 0.00 =
+    billInfo.pplAmount[0] === "0"
+      ? 0.0
+      : ((Number(billInfo.tip) / 100 + 1) * Number(billInfo.bill)) /
+        Number(billInfo.pplAmount);
 
   return (
     <section className={css.resultSect}>
@@ -15,7 +29,9 @@ const Result = ({ billInfo, resetFunc }) => {
         </div>
         <p className={css.totalAmount}>
           $
-          {totalTip === Infinity || totalTip === 0 || totalTip[0] === "0" || isNaN(totalTip) 
+          {totalTip === Infinity ||
+          totalTip === 0 ||
+          isNaN(totalTip)
             ? "0.00"
             : totalTip.toFixed(2)}
         </p>
@@ -27,7 +43,9 @@ const Result = ({ billInfo, resetFunc }) => {
         </div>
         <p className={css.totalAmount}>
           $
-          {total === Infinity || total === 0 || total[0] === "0" || isNaN(totalTip)
+          {total === Infinity ||
+          total === 0 ||
+          isNaN(totalTip)
             ? "0.00"
             : total.toFixed(2)}
         </p>
@@ -35,10 +53,8 @@ const Result = ({ billInfo, resetFunc }) => {
       <button
         type="reset"
         disabled={
-          totalTip === 0 &&
-          total === 0 ||
-          totalTip === Infinity &&
-          total === Infinity
+          (totalTip === 0 && total === 0) ||
+          (totalTip === Infinity && total === Infinity)
             ? true
             : false
         }
@@ -52,8 +68,3 @@ const Result = ({ billInfo, resetFunc }) => {
 };
 
 export default Result;
-
-Result.propTypes = {
-  billInfo: PropTypes.object.isRequired,
-  resetFunc: PropTypes.func.isRequired,
-};
